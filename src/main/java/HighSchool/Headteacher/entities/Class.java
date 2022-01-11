@@ -22,7 +22,7 @@ public class Class {
     private int ID_Teacher;
 
     @OneToMany
-    @JoinColumn(name = "ID_Class",referencedColumnName="id_class",insertable=false, updatable=false)
+    @JoinColumn(name = "ID_Class",insertable=false, updatable=false)
     private Set<Student> students;
 
 }

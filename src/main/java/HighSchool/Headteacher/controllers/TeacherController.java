@@ -25,20 +25,20 @@ return service.saveTeacher(teacher);
     public List<Teacher> findAllTeachers(){
     return service.getTeachers();
     }
-    @GetMapping("/teacher/{id}")
+    @GetMapping("/teacherById/{id}")
     public Teacher findteacherById(@PathVariable int id){
     return service.getTeacherById(id);}
-    @GetMapping("/teacher/{name}")
+    @GetMapping("/teacherByName/{name}")
     public Teacher findteacherByName(@PathVariable String name){
         return service.getTeacherByName(name);}
 
 
-    @PutMapping("/update")
+    @PutMapping("/update/teacher")
     public Teacher upTeacher(@RequestBody Teacher teacher){
         return service.updateTeacher(teacher);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete/teacher/{id}")
    public String deleteTeacher(@PathVariable int id){
     return service.deleteTeahcer(id);
    }

@@ -17,10 +17,10 @@ public class Student {
     private int ID_Student;
     private String name;
     private String surname;
-    private int ID_Class;
+   // private int ID_Class;
 
     @ManyToOne
-    @JoinColumn(name = "ID_Class",referencedColumnName="id_class",insertable=false, updatable=false)
-    private Class _class;
+    @JoinColumn(name = "ID_Class",insertable=false, updatable=false)
+    private Class ID_Class;
 
 }
