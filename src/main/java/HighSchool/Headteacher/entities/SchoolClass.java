@@ -35,6 +35,8 @@ public class SchoolClass {
     @JoinColumn(name="fk_id_teacher",referencedColumnName = "id_teacher")
     private Teacher teacher;
 
-
+@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="fk_student_id",referencedColumnName = "id_class")
+    private List<Student> student;
 
 }
