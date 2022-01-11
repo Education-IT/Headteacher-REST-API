@@ -41,7 +41,7 @@ public class StudentService {
     public Student updateStudent(Student student){
         Student existingStudent=repository.findById(student.getID_Student()).orElse(null);
         existingStudent.setName(student.getName());
-        existingStudent.setID_Class(student.getID_Class());
+        //existingStudent.setID_School_Class(student.getID_School_Class());
         existingStudent.setSurname(student.getSurname());
         return repository.save(existingStudent);
 

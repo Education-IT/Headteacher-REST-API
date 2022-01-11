@@ -26,10 +26,10 @@ return service.saveTeacher(teacher);
     return service.getTeachers();
     }
     @GetMapping("/teacherById/{id}")
-    public Teacher findteacherById(@PathVariable int id){
+    public Teacher findTeacherById(@PathVariable int id){
     return service.getTeacherById(id);}
     @GetMapping("/teacherByName/{name}")
-    public Teacher findteacherByName(@PathVariable String name){
+    public Teacher findTeacherByName(@PathVariable String name){
         return service.getTeacherByName(name);}
 
 
