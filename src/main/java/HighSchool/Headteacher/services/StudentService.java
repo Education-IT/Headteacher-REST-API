@@ -1,21 +1,15 @@
 package HighSchool.Headteacher.services;
 
-
-import HighSchool.Headteacher.entities.SchoolClass;
 import HighSchool.Headteacher.entities.Student;
-import HighSchool.Headteacher.repositories.SchoolClassRepository;
 import HighSchool.Headteacher.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class StudentService {
     @Autowired
     private StudentRepository repository;
-
 
     public Student saveStudent(Student student) {
         return repository.save(student);
@@ -39,8 +33,7 @@ public class StudentService {
 
     public String deleteStudent(int id) {
         repository.deleteById(id);
-        return "Student removed from database! Student's id: " + id;
-    }
+        return "Student removed from database! Student's id: " + id;}
 
     public Student updateStudent(Student student) {
         Student existingStudent = repository.findById(student.getID_Student()).orElse(null);

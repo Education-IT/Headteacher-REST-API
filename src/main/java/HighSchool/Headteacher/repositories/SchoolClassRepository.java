@@ -1,6 +1,5 @@
 package HighSchool.Headteacher.repositories;
 
-
 import HighSchool.Headteacher.entities.SchoolClass;
 import org.springframework.data.jpa.repository.JpaRepository;
 

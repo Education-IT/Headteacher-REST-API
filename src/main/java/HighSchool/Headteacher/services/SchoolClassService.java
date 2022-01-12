@@ -5,7 +5,6 @@ import HighSchool.Headteacher.repositories.SchoolClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.List;
 
 @Service
@@ -18,8 +17,7 @@ public class SchoolClassService {
     }
 
     public List<SchoolClass> saveSchoolClasses(List<SchoolClass> schoolclasses) {
-        return repository.saveAll(schoolclasses);
-    }
+        return repository.saveAll(schoolclasses);}
 
     public List<SchoolClass> getSchoolClasses() {
         return repository.findAll();
@@ -35,8 +33,7 @@ public class SchoolClassService {
 
     public String deleteSchoolClassById(int id) {
         repository.deleteById(id);
-        return "School class - id:" + id + " removed!";
-    }
+        return "School class - id:" + id + " removed!";}
 
     public SchoolClass updateSchoolClass(SchoolClass schoolclass) {
         SchoolClass existingSchoolClass = repository.findById(schoolclass.getId_class()).orElse(null);
@@ -45,6 +42,5 @@ public class SchoolClassService {
         return repository.save(existingSchoolClass);
 
     }
-
 
 }

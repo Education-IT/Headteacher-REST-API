@@ -4,7 +4,6 @@ import HighSchool.Headteacher.entities.Teacher;
 import HighSchool.Headteacher.repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -21,8 +20,7 @@ public class TeacherService {
     }
 
     public List<Teacher> getTeachers() {
-        return repository.findAll();
-    }
+        return repository.findAll();}
 
     public Teacher getTeacherById(int id) {
         return repository.findById(id).orElse(null);
@@ -34,8 +32,7 @@ public class TeacherService {
 
     public String deleteTeahcer(int id) {
         repository.deleteById(id);
-        return "Teacher removed!" + id;
-    }
+        return "Teacher removed!" + id;}
 
     public Teacher updateTeacher(Teacher teacher) {
         Teacher existingTeahcer = repository.findById(teacher.getID_Teacher()).orElse(null);
@@ -44,5 +41,4 @@ public class TeacherService {
         existingTeahcer.setSurname(teacher.getSurname());
         return repository.save(existingTeahcer);
     }
-
 }
