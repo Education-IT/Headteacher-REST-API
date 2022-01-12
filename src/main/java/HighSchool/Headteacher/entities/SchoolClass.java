@@ -1,6 +1,7 @@
 package HighSchool.Headteacher.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,11 +18,11 @@ import java.util.List;
 @Transactional
 @ToString
 @Entity
-@Table(name ="School_classes")
+@Table(name = "School_classes")
 public class SchoolClass {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int ID_Class;
+    private int id_class;
     private String name;
     private String major;
     //private int ID_Teacher;
@@ -30,13 +31,14 @@ public class SchoolClass {
     @JoinColumn(name="student-id",referencedColumnName = "id")
     private List<Student> students;
 */
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_id_teacher",referencedColumnName = "id_teacher")
+    @JsonIgnore
+    @OneToOne(targetEntity = Teacher.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_id_teacher", referencedColumnName = "id_teacher")
     private Teacher teacher;
 
-@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="fk_student_id",referencedColumnName = "id_class")
-    private List<Student> student;
 
+    @JsonIgnore
+    @OneToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_class_id", referencedColumnName = "id_class")
+    private List<Student> student;
 }

@@ -1,52 +1,53 @@
 package HighSchool.Headteacher.services;
 
 
+import HighSchool.Headteacher.entities.SchoolClass;
 import HighSchool.Headteacher.entities.Student;
+import HighSchool.Headteacher.repositories.SchoolClassRepository;
 import HighSchool.Headteacher.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StudentService {
     @Autowired
     private StudentRepository repository;
 
-    public Student saveStudent(Student student){
+
+    public Student saveStudent(Student student) {
         return repository.save(student);
     }
 
-    public List<Student> saveStudents(List<Student> students){
+    public List<Student> saveStudents(List<Student> students) {
         return repository.saveAll(students);
     }
 
-    public List<Student> getStudents(){
+    public List<Student> getStudents() {
         return repository.findAll();
     }
 
-    public Student getStudentById(int id){
+    public Student getStudentById(int id) {
         return repository.findById(id).orElse(null);
     }
 
-    public Student getStudentBySurname(String surname){
+    public Student getStudentBySurname(String surname) {
         return repository.findBySurname(surname);
     }
 
-    public String deleteStudent(int id){
+    public String deleteStudent(int id) {
         repository.deleteById(id);
         return "Student removed from database! Student's id: " + id;
     }
 
-    public Student updateStudent(Student student){
-        Student existingStudent=repository.findById(student.getID_Student()).orElse(null);
+    public Student updateStudent(Student student) {
+        Student existingStudent = repository.findById(student.getID_Student()).orElse(null);
         existingStudent.setName(student.getName());
         //existingStudent.setID_School_Class(student.getID_School_Class());
         existingStudent.setSurname(student.getSurname());
         return repository.save(existingStudent);
 
     }
-
-
-
 }

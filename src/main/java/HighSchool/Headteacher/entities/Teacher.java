@@ -16,18 +16,18 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name ="Teacher")
+@Table(name = "Teacher")
 public class Teacher {
-@Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID_Teacher;
     private String name;
     private String surname;
     private double salary;
-/*
-@OneToMany(targetEntity = SchoolClass.class,cascade = CascadeType.ALL)
-@JoinColumn(name="ID_Teacher",referencedColumnName = "id")
-    List<SchoolClass> classes;*/
+    /*
+    @OneToMany(targetEntity = SchoolClass.class,cascade = CascadeType.ALL)
+    @JoinColumn(name="ID_Teacher",referencedColumnName = "id")
+        List<SchoolClass> classes;*/
     @OneToOne(mappedBy = "teacher")
     private SchoolClass schoolClass;
 }
