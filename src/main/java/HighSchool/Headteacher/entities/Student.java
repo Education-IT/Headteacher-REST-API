@@ -23,4 +23,5 @@ public class Student {
 
     @ManyToOne
     private SchoolClass schoolClass;
-}
+    }
+
