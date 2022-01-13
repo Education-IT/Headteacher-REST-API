@@ -13,39 +13,31 @@ public class TeacherController {
     @Autowired
     private TeacherService service;
 
-    @PostMapping(value = "/addteacher", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping("/addteacher")
     public Teacher addTeacher(@RequestBody Teacher teacher) {
-        return service.saveTeacher(teacher);
-    }
+        return service.saveTeacher(teacher);}
 
-    @PostMapping(value = "/addteachers")
+    @PostMapping("/addteachers")
     public List<Teacher> addTeachers(@RequestBody List<Teacher> teachers) {
-        return service.saveTeachers(teachers);
-    }
+        return service.saveTeachers(teachers);}
 
-    @GetMapping(value = "/teachers", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/teachers")
     public List<Teacher> findAllTeachers() {
-        return service.getTeachers();
-    }
+        return service.getTeachers();}
 
-    @GetMapping(value = "/teacherById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/teacherById/{id}")
     public Teacher findTeacherById(@PathVariable int id) {
-        return service.getTeacherById(id);
-    }
+        return service.getTeacherById(id);}
 
-    @GetMapping(value = "/teacherByName/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping( "/teacherByName/{name}")
     public Teacher findTeacherByName(@PathVariable String name) {
-        return service.getTeacherByName(name);
-    }
+        return service.getTeacherByName(name);}
 
-    @PutMapping(value = "/update/teacher")
+    @PutMapping("/update/teacher")
     public Teacher upTeacher(@RequestBody Teacher teacher) {
-        return service.updateTeacher(teacher);
-    }
+        return service.updateTeacher(teacher);}
 
-    @DeleteMapping(value = "/delete/teacher/{id}")
+    @DeleteMapping("/delete/teacher/{id}")
     public String deleteTeacher(@PathVariable int id) {
-        return service.deleteTeacher(id);
-    }
-
+        return service.deleteTeacher(id);}
 }

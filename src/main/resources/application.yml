@@ -10,7 +10,3 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
-  server:
-    error:
-      whitelabel:
-        enabled: false

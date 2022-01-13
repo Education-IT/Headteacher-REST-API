@@ -16,41 +16,33 @@ public class SchoolClassController {
 
     @PostMapping("/addschoolclass")
     public SchoolClass addSchoolClass(@RequestBody SchoolClass schoolclass) {
-        return service.saveSchoolClass(schoolclass);
-    }
+        return service.saveSchoolClass(schoolclass);}
 
     @PostMapping("/addschoolclasses")
     public List<SchoolClass> addSchoolClasses(@RequestBody List<SchoolClass> schoolclasses) {
-        return service.saveSchoolClasses(schoolclasses);
-    }
+        return service.saveSchoolClasses(schoolclasses);}
 
     @GetMapping("/schollclasses")
     public List<SchoolClass> findAllSchollClasses() {
-        return service.getSchoolClasses();
-    }
+        return service.getSchoolClasses();}
 
-    @GetMapping(value = "/schoolclassById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/schoolclassById/{id}")
     public SchoolClass findSchoolClassById(@PathVariable int id) {
-        return service.getSchoolClassById(id);
-    }
+        return service.getSchoolClassById(id);}
 
-    @GetMapping(value = "/schoolclassByName/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/schoolclassByName/{name}")
     public SchoolClass findSchoolClassByName(@PathVariable String name) {
-        return service.getSchoolClassByName(name);
-    }
+        return service.getSchoolClassByName(name);}
 
-    @PutMapping(value = "/update/schoolclass")
+    @PutMapping("/update/schoolclass")
     public SchoolClass upSchoolClass(@RequestBody SchoolClass schoolclass) {
-        return service.updateSchoolClass(schoolclass);
-    }
+        return service.updateSchoolClass(schoolclass);}
 
-    @DeleteMapping(value = "/delete/schoolclass/{id}")
+    @DeleteMapping("/delete/schoolclass/{id}")
     public String deleteSchoolClass(@PathVariable int id) {
-        return service.deleteSchoolClassById(id);
-    }
+        return service.deleteSchoolClassById(id);}
 
     @PatchMapping("teacher")
     public void assignTeacherToClass(@RequestBody AssignDto assignDto) {
-        service.assignTeacherToClass(assignDto.getTeacherId(), assignDto.getClassId());
-    }
+        service.assignTeacherToClass(assignDto.getTeacherId(), assignDto.getClassId());}
 }

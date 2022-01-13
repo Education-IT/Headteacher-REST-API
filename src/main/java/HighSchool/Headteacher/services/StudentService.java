@@ -15,29 +15,26 @@ public class StudentService {
 
     public Student saveStudent(Student student, int classId) {
         student.setSchoolClass(schoolClassService.getSchoolClassById(classId));
-        return repository.save(student);
-    }
+        return repository.save(student);}
 
     public List<Student> saveStudents(List<Student> students) {
-        return repository.saveAll(students);
-    }
+        return repository.saveAll(students);}
 
     public List<Student> getStudents() {
-        return repository.findAll();
-    }
+        return repository.findAll();}
 
     public Student getStudentById(int id) {
-        return repository.findById(id).orElse(null);
-    }
+        return repository.findById(id).orElse(null);}
 
     public Student getStudentBySurname(String surname) {
-        return repository.findBySurname(surname);
-    }
+        return repository.findBySurname(surname);}
+
+    public List<Student> getStudentsBySchoolClassId(int id) {
+        return repository.findStudentBySchoolClassId(id);}
 
     public String deleteStudent(int id) {
         repository.deleteById(id);
-        return "Student removed from database! Student's id: " + id;
-    }
+        return "Student removed from database! Student's id: " + id;}
 
     public Student updateStudent(Student student) {
         Student existingStudent = repository.getById(student.getId());
