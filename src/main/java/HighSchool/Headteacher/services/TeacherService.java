@@ -27,6 +27,7 @@ public class TeacherService {
     public Teacher getTeacherByName(String name) {
         return repository.findByName(name);}
 
+
     public String deleteTeacher(int id) {
         repository.deleteById(id);
         return "Teacher removed! (His id: " + id + ")";}

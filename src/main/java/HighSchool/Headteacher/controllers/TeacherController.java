@@ -39,5 +39,6 @@ public class TeacherController {
 
     @DeleteMapping("/delete/teacher/{id}")
     public String deleteTeacher(@PathVariable int id) {
-        return service.deleteTeacher(id);}
+        return service.deleteTeacher(id);
+    }
 }
