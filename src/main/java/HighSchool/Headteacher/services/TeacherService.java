@@ -2,14 +2,15 @@ package HighSchool.Headteacher.services;
 
 import HighSchool.Headteacher.entities.Teacher;
 import HighSchool.Headteacher.repositories.TeacherRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TeacherService {
-    @Autowired
-    private TeacherRepository repository;
+    private final TeacherRepository repository;
 
     public Teacher saveTeacher(Teacher teacher) {
         return repository.save(teacher);
@@ -20,25 +21,27 @@ public class TeacherService {
     }
 
     public List<Teacher> getTeachers() {
-        return repository.findAll();}
+        return repository.findAll();
+    }
 
     public Teacher getTeacherById(int id) {
-        return repository.findById(id).orElse(null);
+        return repository.getById(id);
     }
 
-    public Teacher getTeacherByName(String Name) {
-        return repository.findByName(Name);
+    public Teacher getTeacherByName(String name) {
+        return repository.findByName(name);
     }
 
-    public String deleteTeahcer(int id) {
+    public String deleteTeacher(int id) {
         repository.deleteById(id);
-        return "Teacher removed!" + id;}
+        return "Teacher removed!" + id;
+    }
 
     public Teacher updateTeacher(Teacher teacher) {
-        Teacher existingTeahcer = repository.findById(teacher.getID_Teacher()).orElse(null);
-        existingTeahcer.setName(teacher.getName());
-        existingTeahcer.setSalary(teacher.getSalary());
-        existingTeahcer.setSurname(teacher.getSurname());
-        return repository.save(existingTeahcer);
+        Teacher existingTeacher = repository.getById(teacher.getId());
+        existingTeacher.setName(teacher.getName());
+        existingTeacher.setSalary(teacher.getSalary());
+        existingTeacher.setSurname(teacher.getSurname());
+        return repository.save(existingTeacher);
     }
 }

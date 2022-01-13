@@ -3,6 +3,7 @@ package HighSchool.Headteacher.controllers;
 
 import HighSchool.Headteacher.entities.Student;
 import HighSchool.Headteacher.services.StudentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class StudentController {
-    @Autowired
-    private StudentService service;
+    private final StudentService service;
 
-    @PostMapping(value = "/addstudent")
-    public Student addStudent(@RequestBody Student student) {
-        return service.saveStudent(student);
+    @PostMapping(value = "/addstudent/class/{classId}")
+    public Student addStudent(@RequestBody Student student, @PathVariable int classId) {
+        return service.saveStudent(student, classId);
     }
 
     @PostMapping(value = "/addstudents")

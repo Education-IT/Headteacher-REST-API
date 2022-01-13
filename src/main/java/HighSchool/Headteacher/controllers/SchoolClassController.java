@@ -1,39 +1,30 @@
 package HighSchool.Headteacher.controllers;
 
+import HighSchool.Headteacher.dto.AssignDto;
 import HighSchool.Headteacher.entities.SchoolClass;
-import HighSchool.Headteacher.entities.Teacher;
-import HighSchool.Headteacher.repositories.SchoolClassRepository;
 import HighSchool.Headteacher.services.SchoolClassService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class SchoolClassController {
-    @Autowired
-    private SchoolClassService service;
+    private final SchoolClassService service;
 
-    @Autowired
-    private SchoolClassRepository repository;
-
-    @PostMapping(value = "/addschoolclass")
+    @PostMapping("/addschoolclass")
     public SchoolClass addSchoolClass(@RequestBody SchoolClass schoolclass) {
-        //return service.saveSchoolClass(schoolclass);
-        return repository.save(schoolclass);
+        return service.saveSchoolClass(schoolclass);
     }
 
-    @PostMapping(value = "/addschoolclasses")
-    public ResponseEntity<String> addSchoolClasses(@RequestBody List<SchoolClass> schoolclasses) {
-        //public List<SchoolClass> addSchoolClasses(@RequestBody List<SchoolClass> schoolclasses){
-        //return service.saveSchoolClasses(schoolclasses);
-        repository.saveAll(schoolclasses);
-        return ResponseEntity.ok("Data saved");
+    @PostMapping("/addschoolclasses")
+    public List<SchoolClass> addSchoolClasses(@RequestBody List<SchoolClass> schoolclasses) {
+        return service.saveSchoolClasses(schoolclasses);
     }
 
-    @GetMapping(value = "/schollclasses", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping("/schollclasses")
     public List<SchoolClass> findAllSchollClasses() {
         return service.getSchoolClasses();
     }
@@ -48,7 +39,6 @@ public class SchoolClassController {
         return service.getSchoolClassByName(name);
     }
 
-
     @PutMapping(value = "/update/schoolclass")
     public SchoolClass upSchoolClass(@RequestBody SchoolClass schoolclass) {
         return service.updateSchoolClass(schoolclass);
@@ -59,5 +49,8 @@ public class SchoolClassController {
         return service.deleteSchoolClassById(id);
     }
 
-
+    @PatchMapping("teacher")
+    public void assignTeacherToClass(@RequestBody AssignDto assignDto) {
+        service.assignTeacherToClass(assignDto.getTeacherId(), assignDto.getClassId());
+    }
 }
