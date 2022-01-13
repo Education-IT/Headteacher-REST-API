@@ -16,12 +16,13 @@ class StudentServiceSpec extends Specification {
     def 'should save student'() {
         given:
         def id = 1
-        def schoolClass = new SchoolClass()
+        def schoolClass = Mock(SchoolClass)
+        def existingSchoolClass = Mock(SchoolClass)
         def student = new Student()
 
         when:
-        schoolClassService.saveSchoolClass(schoolClass)
-        schoolClassRepository.save(schoolClass)
+
+
         studentService.saveStudent(student,id)
 
 
@@ -43,19 +44,18 @@ class StudentServiceSpec extends Specification {
         1 * studentRepository.saveAll(students)
         0 * _
     }
-/*
-    def 'should get student by id'() {
-        given:
-        def id = 1
 
+    def 'should get students'(){
         when:
-        studentService.getStudentById(id)
+        studentService.getStudents()
 
         then:
-        1 * studentRepository.getById(id)
+        1 * studentRepository.findAll()
         0 * _
+
     }
-*/
+
+
     def 'should get student by surname'() {
         given:
         def surname = "surname"
@@ -68,7 +68,7 @@ class StudentServiceSpec extends Specification {
         0 * _
     }
 
-    def 'should delete teacher by id'() {
+    def 'should delete student by id'() {
         given:
         def id = 1
 

@@ -35,6 +35,15 @@ class SchoolClassServiceSpec extends Specification {
 
     }
 
+    def "should get schoolclasses"() {
+        when:
+        schoolClassService.getSchoolClasses()
+
+        then:
+        1 * schoolClassRepository.findAll()
+        0 * _
+    }
+
     def 'should get schoolclass by id'() {
         given:
         def id = 1
@@ -57,6 +66,19 @@ class SchoolClassServiceSpec extends Specification {
         then:
         1 * schoolClassRepository.findByName(name)
         0 * _
+    }
+
+    def 'should delete schoolclass by id'() {
+        given:
+        def id = 1
+
+        when:
+        schoolClassService.deleteSchoolClassById(id)
+
+        then:
+        1 * schoolClassRepository.deleteById(id)
+        0 * _
+
     }
 
 
