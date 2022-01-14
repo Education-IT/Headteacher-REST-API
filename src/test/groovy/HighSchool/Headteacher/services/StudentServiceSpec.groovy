@@ -12,26 +12,6 @@ class StudentServiceSpec extends Specification {
     def schoolClassService = Mock(SchoolClassService)
     def studentService = new StudentService(studentRepository, schoolClassService)
 
-/*
-    def 'should save student'() {
-        given:
-        def id = 1
-        def schoolClass = Mock(SchoolClass)
-        def existingSchoolClass = Mock(SchoolClass)
-        def student = new Student()
-
-        when:
-
-
-        studentService.saveStudent(student,id)
-
-
-        then:
-        1 * studentService.saveStudent(student,id)
-        0 * _
-    }
-*/
-
     def 'should save students'() {
         given:
         def student = new Student()

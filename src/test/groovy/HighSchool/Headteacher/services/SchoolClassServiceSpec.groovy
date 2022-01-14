@@ -18,7 +18,8 @@ class SchoolClassServiceSpec extends Specification {
         schoolClassService.saveSchoolClass(schoolClass)
 
         then:
-        1 * schoolClassRepository.save(schoolClass)
+        1 * schoolClassRepository.save(schoolClass) //dokładnie raz powinna wydarzyć się ta czynność
+        0 * _ // nie dopuszczanie do innych iteracji
     }
 
     def 'should save schoolclasses'() {

@@ -13,18 +13,25 @@
 <h1>Główne założenia projektu</h1>
 <ul>
     <li>Projekt został napisane w Javie (Framework - Spring boot)</li>
+    <li>Aplikacja działa tylko w warstwie back-end'owej - zawiera podstawową wartswę Fron-end'u - przekierowującą do strony z informacjami na temat projektu jak i do strony wspomagającej działanie aplikacji (swagger) </li>
     <li>Dla ułatwienia można kozystac w zaimplementowanego w aplikacje swaggera</li>
     <li>Aplikacja udostępnia API RESTowe które umożliwia zarządzanie CRUD bazą danych</li>
-    <li>Baza danych (MsSql) stacjonuje na tym samym komputerze co aplikacja. Baza danych działa na porcie: 3306</li>
+    <li>Baza danych (MySql) stacjonuje na tym samym komputerze co aplikacja. Baza danych działa na porcie: 3306</li>
     <li>Aplikacja jest prowadzona na git'cie</li>
     <li>W Bazie danych znajduja się 3 tabele:</li>
+    <ol>1) Students </ol>
+    <ol>2) teachers </ol>
+    <ol>3) SchoolClasses</ol>
+    <li>Oraz występują poniższe powiązania między nimi:</li>
     <ol>1) Teacher - SchoolClass ( powiązanie oneToOne )</ol>
     <ol>2) SchoolClass - Student ( powiązanie oneToMany )</ol>
-    <li>Testy jednostkowe są napisane w Junit jak i SPOCK'u (Groovy)</li>
+    <li>Testy jednostkowe są napisane w Junit jak i frameworku SPOCK (Groovy)</li>
+    <li>Aplikacja pisana w IntellJ IDEA - zebrane pokrycie kodu testami wynosi 62%</li>
     <li>Use case:</li>
-    <ol>1) Aplikacja używana przez dyrektora szkoły średniej (jak i administrajce) w celach informacyjnych/statystycznych/planowych</ol>
+    <ol>1) Aplikacja używana przez dyrektora szkoły średniej (jak i administrajce) w celach informacyjnych / statystycznych / planowych / administracyjnych </ol>
     <ol>2) Dyrektor/administracja ma możliwość przypisania klasie danego nauczyciela jak i jego zmianę</ol>
-    <ol>3) Również istnieje możliwośc stworzenia klasy i przypisanie jej studentów.</ol>
+    <ol>3) Istnieje możliwość wypisania wszystkich studenów należących do danej klasy</ol>
+    <ol>4) Można stworzyć nowe rekordy w bazie danych w każdej z tabel - nauczyciela , klasy oraz przypisanie klasie jej studentów.</ol>
 
 </ul>
 
