@@ -11,27 +11,27 @@ Zadanie polegało na stworzeniu za pomocą języka obiektowego backend'u strony 
 **Program :**
 <ul>
 
-<li>Projekt został napisane w Javie (**Framework - Spring boot**)</li>
+<li>Projekt został napisane w Javie (<b>Framework - Spring boot</b>)</li>
 
 <li>Aplikacja działa tylko w warstwie back-end'owej - zawiera podstawową warstwę Fron-end'u - przekierowującą do strony z informacjami na temat projektu jak i do strony wspomagającej działanie aplikacji (swagger) </li>
 
-<li>Dla ułatwienia można korzystać w zaimplementowanego w aplikacje **swaggera**</li>
+<li>Dla ułatwienia można korzystać w zaimplementowanego w aplikacje <b>swaggera</b></li>
 
-<li>Aplikacja udostępnia **API REST**owe które umożliwia zarządzanie **CRUD** bazą danych</li>
+<li>Aplikacja udostępnia <b>API REST</b>owe które umożliwia zarządzanie <b>CRUD</b> bazą danych</li>
 
-<li>Baza danych (**MySQL**) stacjonuje na tym samym komputerze co aplikacja. Baza danych działa na porcie: 3306</li>
+<li>Baza danych (<b>MySQL</b>) stacjonuje na tym samym komputerze co aplikacja. Baza danych działa na porcie: 3306</li>
 <li>W Bazie danych znajduja się 3 tabele:</li>
 <ol>1) Students </ol>
 <ol>2) teachers </ol>
 <ol>3) SchoolClasses</ol>
 <li>Oraz występują poniższe powiązania między nimi:</li>
-<ol>1) Teacher - SchoolClass ( powiązanie **oneToOne** )</ol>
+<ol>1) Teacher - SchoolClass ( powiązanie <b>oneToOne</b> )</ol>
 
-<ol>2) SchoolClass - Student ( powiązanie **oneToMany** )</ol>
+<ol>2) SchoolClass - Student ( powiązanie <b>oneToMany</b> )</ol>
 
-<li>Testy jednostkowe są napisane w **Junit** jak i frameworku **SPOCK (Groovy)**</li>
+<li>Testy jednostkowe są napisane w <b>Junit</b> jak i frameworku <b>SPOCK (Groovy)</b></li>
 
-<li>Aplikacja pisana w IntellJ IDEA - zebrane **pokrycie kodu testami wynosi 62%**</li>
+<li>Aplikacja pisana w IntellJ IDEA - zebrane <b>pokrycie kodu testami wynosi 62%</b></li>
 
 <li>Use case:</li>
 
