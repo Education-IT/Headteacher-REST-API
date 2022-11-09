@@ -18,7 +18,7 @@ import javax.transaction.Transactional;
 public class SchoolClass {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
